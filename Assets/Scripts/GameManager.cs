@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //userData = new UserData("HyeokJun", 8500000, 115000);
-        LoadUserData();
         Refresh();
 
     }
@@ -47,16 +46,20 @@ public class GameManager : MonoBehaviour
     public void SaveUserData() //데이터 저장
     {
 
-        PlayerPrefs.SetString("UserName", userData.Username);
-        PlayerPrefs.SetInt("Cash",userData.Cash);
-        PlayerPrefs.SetInt("Balance", userData.AccountBalance);
+        PlayerPrefs.SetString($"{userData.ID}/UserName", userData.Username);
+        PlayerPrefs.SetInt($"{userData.ID}/Cash",userData.Cash);
+        PlayerPrefs.SetInt($"{userData.ID}/Balance", userData.AccountBalance);
+        PlayerPrefs.SetString($"{userData.ID}",userData.ID);
+        PlayerPrefs.SetString($"{userData.ID}/Password",userData.Password);
     }
 
-    public void LoadUserData()
+    public void LoadUserData(string id)
     {
-        userData.Username = PlayerPrefs.GetString("UserName", userData.Username);
-        userData.Cash = PlayerPrefs.GetInt("Cash",userData.Cash);
-        userData.AccountBalance = PlayerPrefs.GetInt("Balance", userData.AccountBalance);
+        userData.Username = PlayerPrefs.GetString($"{id}/UserName", userData.Username);
+        userData.Cash = PlayerPrefs.GetInt($"{id}/Cash",userData.Cash);
+        userData.AccountBalance = PlayerPrefs.GetInt($"{id}/Balance", userData.AccountBalance);
+        userData.Password = PlayerPrefs.GetString($"{id}/Password", userData.Password);
+        userData.ID = PlayerPrefs.GetString ($"{id}", userData.ID);
 
     }
 
