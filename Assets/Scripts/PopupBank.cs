@@ -14,13 +14,15 @@ public class PopupBank : MonoBehaviour
     public TMP_InputField InputField; // 직접입력 field
     public TMP_InputField OutputField; // 직접입력 field
     public GameObject Popup;
+    public GameObject LoginUI; //로그인 UI
 
 
 
 
     private void Start()
     {
-        ATMUI.SetActive(true);
+        LoginUI.SetActive(true);
+        ATMUI.SetActive(false);
         InputUI.SetActive(false);
         OutputUI.SetActive(false);
         Popup.SetActive(false);

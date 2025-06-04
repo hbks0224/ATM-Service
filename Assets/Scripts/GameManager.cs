@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        userData = new UserData("HyeokJun", 8500000, 115000);
+        //userData = new UserData("HyeokJun", 8500000, 115000);
         LoadUserData();
         Refresh();
 
